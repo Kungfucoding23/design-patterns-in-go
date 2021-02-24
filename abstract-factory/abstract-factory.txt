@@ -1,0 +1,4 @@
+Ejemplo conceptual
+Digamos que tienes que comprar dos productos diferentes de equipamiento deportivo: un par de zapatillas y una camiseta. Te gustaría comprar todo el equipamiento de la misma marca, para que los artículos combinen.
+
+Si intentamos traducir esto en código, la fábrica abstracta nos ayudará a crear grupos de productos para que siempre coincidan entre sí.
