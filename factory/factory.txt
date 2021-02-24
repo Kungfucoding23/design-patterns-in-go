@@ -1,0 +1,9 @@
+Ejemplo conceptual
+
+Resulta imposible implementar el clásico patrón Factory Method en Go debido a la falta de funciones POO, como las clases y la herencia. Sin embargo, podemos implementar la versión básica del patrón, el Simple Factory.
+
+En este ejemplo, vamos a crear varios tipos de armas utilizando una estructura de fábrica.
+
+Primero, creamos la interfaz iGun, que define todos los métodos con los que debería contar un arma. Hay un tipo de estructura gun que implementa la interfaz iGun. Dos armas concretas (ak47 y musket), ambas integran la estructura del arma e, indirectamente, implementan todos los métodos iGun.
+
+La estructura gunFactory sirve como fábrica, que crea armas del tipo deseado en base a un argumento entrante. main.go actúa como cliente. En lugar de interactuar directamente con ak47 o musket, se basa en gunFactory para crear instancias de varias armas, utilizando únicamente parámetros de cadenas para controlar la producción.
