@@ -1,0 +1,12 @@
+Ejemplo conceptual
+Normalmente, se crea una instancia singleton cuando la estructura se inicializa por primera vez. Para hacer que esto suceda, definimos el método getInstance en la estructura. El método será responsable de crear y devolver la instancia singleton. Una vez creada, la misma instancia singleton será devuelta cada vez que se invoque el getInstance.
+
+¿Qué pasa con las goroutines? La estructura singleton debe devolver la misma instancia siempre que varias goroutines intenten acceder a esa instancia. Por este motivo, resulta muy sencillo implementar mal el patrón de diseño singleton. El siguiente ejemplo ilustra el modo correcto de crear un singleton.
+
+Algunos puntos a tener en cuenta:
+
+Hay una comprobación nil al principio para asegurarnos de que singleInstance está vacío la primera vez. Esto es para evitar costosas operaciones de bloqueo cada vez que se invoque el método getinstance. Si falla esta comprobación, significa que el campo singleInstance ya está poblado.
+
+La estructura singleInstance se crea dentro del bloqueo.
+
+Hay otra comprobación nil tras la adquisición del bloqueo. Con esto se garantiza que, si más de una goroutine pasa la primera comprobación, tan solo una de ellas puede crear la instancia singleton. De lo contrario, todas las goroutines crearán sus propias instancias de la estructura singleton.
